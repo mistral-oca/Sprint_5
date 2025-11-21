@@ -1,0 +1,25 @@
+from selenium.webdriver.common.by import By
+
+LOGIN_REG_BUTTON = (By.XPATH, "//button[text()='Вход и регистрация']")
+NO_ACCOUNT_BUTTON = (By.XPATH, "//button[text()='Нет аккаунта']")
+EMAIL_INPUT = (By.NAME, "email")
+PASSWORD_INPUT = (By.NAME, "password")
+CONFIRM_PASSWORD_INPUT = (By.NAME, "submitPassword")
+CREATE_ACCOUNT_BUTTON = (By.XPATH, "//button[text()='Создать аккаунт']")
+USER_AVATAR = (By.CSS_SELECTOR, "svg.svgSmall")
+USER_NAME_TEXT = (By.CSS_SELECTOR, "h3.profileText.name")
+EMAIL_ERROR_TEXT = (By.XPATH, "//span[contains(@class,'input_span') and text()='Ошибка']")
+EMAIL_ERROR_TEXT = (By.CSS_SELECTOR, "span.input_span__yWPqB")
+LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")
+LOGOUT_BUTTON = (By.XPATH, "//button[text()='Выйти']")
+PLACE_AD_BUTTON = (By.XPATH, "//button[text()='Разместить объявление']")
+MODAL_TITLE = (By.XPATH, "//h1[text()='Чтобы разместить объявление, авторизуйтесь']")
+TITLE_FIELD = (By.NAME, "name")
+DESCRIPTION_FIELD = (By.NAME, "description")
+PRICE_FIELD = (By.NAME, "price")
+CATEGORY_DROPDOWN = (By.NAME, "category")
+CITY_DROPDOWN = (By.NAME, "city")
+PUBLISH_BUTTON = (By.XPATH, "//button[text()='Опубликовать']")
+PRODUCT_STATE = (By.XPATH, "//h3[contains(text(),'Состояние товара')]/following::input[@type='radio'][1]")
+
+
