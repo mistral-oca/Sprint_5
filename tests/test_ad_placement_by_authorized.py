@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import *
+from selenium.common.exceptions import TimeoutException
 
 EXISTING_USER_EMAIL = "ponomarevamaria_28@gmail.com"
 EXISTING_USER_PASSWORD = "1"
@@ -27,14 +28,17 @@ def get_next_ad_number(driver):
 
 
 def wait_for_last_ad_card(driver, ad_title, timeout=20):
-    end_time = time.time() + timeout
-    while time.time() < end_time:
-        ads = driver.find_elements(By.XPATH, "//div[contains(@class,'card')]//h2")
-        for ad in ads:
-            if ad_title in ad.text:
-                return ad
-        time.sleep(1)
-    return None
+    try:
+        return WebDriverWait(driver, timeout).until(
+            lambda d: next(
+                (ad for ad in d.find_elements(By.XPATH, "//div[contains(@class,'card')]//h2")
+                 if ad_title in ad.text),
+                None
+            )
+        )
+    except TimeoutException:
+        return None
+
 
 
 class TestCreateAd:  
