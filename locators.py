@@ -21,5 +21,12 @@ CATEGORY_DROPDOWN = (By.NAME, "category")
 CITY_DROPDOWN = (By.NAME, "city")
 PUBLISH_BUTTON = (By.XPATH, "//button[text()='Опубликовать']")
 PRODUCT_STATE = (By.XPATH, "//h3[contains(text(),'Состояние товара')]/following::input[@type='radio'][1]")
-
+CREATE_AD_BUTTON = (By.XPATH, "//button[text()='Разместить объявление']")
+NAME_INPUT = (By.NAME, "name")
+DESCRIPTION_INPUT = (By.NAME, "description")
+PRICE_INPUT = (By.NAME, "price")
+CATEGORY_INPUT = (By.NAME, "category")
+CITY_INPUT = (By.NAME, "city")
+CONDITION_LABEL_TEMPLATE = "//label[contains(., '{}')]"  # шаблон для выбора состояния
+PROFILE_BUTTON = (By.CSS_SELECTOR, "button:has(svg.svgSmall)")
 
