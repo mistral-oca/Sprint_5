@@ -2,16 +2,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from helpers import get_next_ad_number, wait_for_last_ad_card
-
-EXISTING_USER_EMAIL = "ponomarevamaria_28@gmail.com"
-EXISTING_USER_PASSWORD = "1"
-
-AD_DESCRIPTION = "Состояние отличное"
-AD_PRICE = "15000"
-AD_CATEGORY = "Технологии"
-AD_CITY = "Москва"
-AD_CONDITION = "Б/У"
-
+from data import *
 
 class TestCreateAd:
 
