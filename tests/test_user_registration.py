@@ -1,5 +1,4 @@
 import pytest
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import *
@@ -39,7 +38,9 @@ class TestRegistration:
         assert error_message.text == "Ошибка"
 
         for field_name in ["email", "password", "submitPassword"]:
-            container = driver.find_element(By.XPATH, f"//input[@name='{field_name}']/parent::*")
+            container = driver.find_element(
+                By.XPATH, FIELD_CONTAINER_TEMPLATE.format(field_name=field_name)
+            )
             container_class = container.get_attribute("class")
             assert "input_inputError" in container_class
 
@@ -59,6 +60,8 @@ class TestRegistration:
         assert error_message.text == "Ошибка"
 
         for field_name in ["email", "password", "submitPassword"]:
-            container = driver.find_element(By.XPATH, f"//input[@name='{field_name}']/parent::*")
+            container = driver.find_element(
+                By.XPATH, FIELD_CONTAINER_TEMPLATE.format(field_name=field_name)
+            )
             container_class = container.get_attribute("class")
             assert "input_inputError" in container_class

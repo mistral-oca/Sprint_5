@@ -8,7 +8,6 @@ CONFIRM_PASSWORD_INPUT = (By.NAME, "submitPassword")
 CREATE_ACCOUNT_BUTTON = (By.XPATH, "//button[text()='Создать аккаунт']")
 USER_AVATAR = (By.CSS_SELECTOR, "svg.svgSmall")
 USER_NAME_TEXT = (By.CSS_SELECTOR, "h3.profileText.name")
-EMAIL_ERROR_TEXT = (By.XPATH, "//span[contains(@class,'input_span') and text()='Ошибка']")
 EMAIL_ERROR_TEXT = (By.CSS_SELECTOR, "span.input_span__yWPqB")
 LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")
 LOGOUT_BUTTON = (By.XPATH, "//button[text()='Выйти']")
@@ -29,4 +28,4 @@ CATEGORY_INPUT = (By.NAME, "category")
 CITY_INPUT = (By.NAME, "city")
 CONDITION_LABEL_TEMPLATE = "//label[contains(., '{}')]"  # шаблон для выбора состояния
 PROFILE_BUTTON = (By.CSS_SELECTOR, "button:has(svg.svgSmall)")
-
+FIELD_CONTAINER_TEMPLATE = "//input[@name='{field_name}']/parent::*"
