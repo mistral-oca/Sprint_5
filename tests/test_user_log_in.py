@@ -4,12 +4,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from data import EXISTING_USER_EMAIL, EXISTING_USER_PASSWORD
+from urls import BASE_URL
 
 
 class TestLoginUser:   
 
     def test_login_user(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(BASE_URL)
 
         driver.find_element(*LOGIN_REG_BUTTON).click()
 

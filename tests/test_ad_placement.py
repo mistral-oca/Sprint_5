@@ -5,20 +5,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from helpers import get_next_ad_number, wait_for_last_ad_card
 from data import *
-
+from urls import BASE_URL
 
 class TestCreateAd:
 
-    def test_create_ad_authorized(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
-
-        driver.find_element(*LOGIN_REG_BUTTON).click()
-        driver.find_element(*EMAIL_INPUT).send_keys(EXISTING_USER_EMAIL)
-        driver.find_element(*PASSWORD_INPUT).send_keys(EXISTING_USER_PASSWORD)
-        driver.find_element(*LOGIN_BUTTON).click()
-
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located(USER_AVATAR))
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located(USER_NAME_TEXT))
+    def test_create_ad_authorized(self, login_user):
+        
+        driver = login_user  # driver уже авторизован через фикстуру
+        driver.get(BASE_URL)
 
         profile_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable(PROFILE_BUTTON)
@@ -83,7 +77,8 @@ class TestCreateAd:
 
 
     def test_create_ad_unauthorized(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        
+        driver.get(BASE_URL)
 
         driver.find_element(*PLACE_AD_BUTTON).click()
 
