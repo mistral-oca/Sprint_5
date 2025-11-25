@@ -1,8 +1,11 @@
+import pytest
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 from helpers import get_next_ad_number, wait_for_last_ad_card
 from data import *
+
 
 class TestCreateAd:
 
@@ -77,3 +80,15 @@ class TestCreateAd:
 
         last_ad = wait_for_last_ad_card(driver, AD_TITLE, timeout=20)
         assert last_ad is not None, f"Не удалось найти объявление с названием '{AD_TITLE}'"
+
+
+    def test_create_ad_unauthorized(self, driver):
+        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+
+        driver.find_element(*PLACE_AD_BUTTON).click()
+
+        modal_title = WebDriverWait(driver, 5).until(
+            EC.visibility_of_element_located(MODAL_TITLE)
+        )
+
+        assert modal_title.is_displayed(), "Модальное окно не появилось"
